@@ -53,21 +53,24 @@ export async function getSessionUser(): Promise<SessionUser | null> {
     const payload = verifyToken(token);
     if (!payload) return null;
 
-    const user = await prisma.user.findUnique({
-      where: { id: payload.id },
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        role: true,
-        phone: true,
-        avatar: true,
-      },
-    });
+    let user = null;
+    try {
+      user = await prisma.user.findUnique({
+        where: { id: payload.id },
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          role: true,
+          phone: true,
+          avatar: true,
+        },
+      });
+    } catch (e) {
+      // Ignore DB query errors on serverless
+    }
 
-    if (!user) return null;
-
-    return user;
+    return user || payload;
   } catch (error) {
     return null;
   }
