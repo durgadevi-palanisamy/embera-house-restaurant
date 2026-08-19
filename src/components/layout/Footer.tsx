@@ -19,7 +19,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-xs text-[#A9A095] leading-relaxed">
-              Open embers, rare heirloom Indian botanicals, and unhurried hospitality in the heart of Mumbai.
+              Open embers, rare heirloom Indian botanicals, and unhurried hospitality in the heart of Nungambakkam, Chennai.
             </p>
             <div className="flex items-center space-x-3 pt-2">
               <a
@@ -57,7 +57,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/menu#tasting" className="hover:text-[#F7F2E9] transition-colors">
+                <Link href="/#tasting" className="hover:text-[#F7F2E9] transition-colors">
                   Solstice Tasting Experience
                 </Link>
               </li>
@@ -117,21 +117,21 @@ export default function Footer() {
             <div className="space-y-3 text-xs text-[#A9A095]">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#C86E45] shrink-0 mt-0.5" />
-                <span>Block 4, The Mills, Senapati Bapat Marg, Lower Parel, Mumbai 400013</span>
+                <span>No. 42, Khader Nawaz Khan Road, Nungambakkam, Chennai, Tamil Nadu 600006</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#C86E45] shrink-0" />
-                <span>+91 22 6789 4400 / +91 98201 55300</span>
+                <span>+91 44 4890 5500 / +91 98400 33400</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#C86E45] shrink-0" />
-                <span>reservations@emberahouse.com</span>
+                <span>reservations@emberahouse.in</span>
               </div>
               <div className="flex items-start gap-2.5 pt-1">
                 <Clock className="w-4 h-4 text-[#D3B98D] shrink-0 mt-0.5" />
                 <div>
                   <p className="text-[#F7F2E9]">Lunch: Tue–Sun 12:00–15:30</p>
-                  <p className="text-[#F7F2E9]">Dinner: Mon–Sun 17:30–00:00</p>
+                  <p className="text-[#F7F2E9]">Dinner: Mon–Sun 18:30–23:30</p>
                 </div>
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#A9A095]">
           <div>
-            © {currentYear} EMBERA HOUSE PRIVATE LIMITED. All rights reserved. Handcrafted Mumbai Fine Dining.
+            © {currentYear} EMBERA HOUSE PRIVATE LIMITED. All rights reserved. Handcrafted Chennai Fine Dining.
           </div>
           <div className="flex items-center space-x-6">
             <Link href="/privacy" className="hover:text-[#F7F2E9] transition-colors">

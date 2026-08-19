@@ -94,7 +94,7 @@ export default function ContactForm() {
             type="tel"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            placeholder="+91 98201 55300"
+            placeholder="+91 98400 33400"
             className="w-full bg-[#11100E] border border-white/10 px-4 py-3 text-xs text-[#F7F2E9] placeholder-[#A9A095]/60 focus:outline-none focus:border-[#C86E45]"
           />
         </div>

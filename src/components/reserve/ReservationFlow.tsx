@@ -159,8 +159,8 @@ export default function ReservationFlow({
       "PRODID:-//Embera House//Reservations//EN",
       "BEGIN:VEVENT",
       `SUMMARY:Dinner at Embera House (${confirmation.confirmationCode})`,
-      `DESCRIPTION:Table reservation for ${confirmation.partySize} guests at Embera House Mumbai.\\nConfirmation: ${confirmation.confirmationCode}`,
-      `LOCATION:Embera House, Block 4, The Mills, Senapati Bapat Marg, Lower Parel, Mumbai 400013`,
+      `DESCRIPTION:Table reservation for ${confirmation.partySize} guests at Embera House Chennai.\\nConfirmation: ${confirmation.confirmationCode}`,
+      `LOCATION:Embera House, No. 42, Khader Nawaz Khan Road, Nungambakkam, Chennai 600006`,
       `DTSTART:${startDateTime}`,
       `DTEND:${startDateTime}`,
       "STATUS:CONFIRMED",
@@ -500,7 +500,7 @@ export default function ReservationFlow({
                   required
                   value={guestPhone}
                   onChange={(e) => setGuestPhone(e.target.value)}
-                  placeholder="+91 98201 55300"
+                  placeholder="+91 98400 33400"
                   className="w-full bg-[#11100E] border border-white/15 px-4 py-3.5 text-sm text-[#F7F2E9] focus:outline-none focus:border-[#C86E45]"
                 />
               </div>
@@ -744,7 +744,7 @@ export default function ReservationFlow({
                 <strong className="text-[#F7F2E9]">Date & Time:</strong> {formatDate(confirmation.date)} at {confirmation.timeSlot}
               </p>
               <p>
-                <strong className="text-[#F7F2E9]">Venue:</strong> Block 4, The Mills, Senapati Bapat Marg, Lower Parel, Mumbai 400013
+                <strong className="text-[#F7F2E9]">Venue:</strong> No. 42, Khader Nawaz Khan Road, Nungambakkam, Chennai 600006
               </p>
               <p>
                 <strong className="text-[#F7F2E9]">Seating Area:</strong> {confirmation.seatingArea.replace("_", " ")}

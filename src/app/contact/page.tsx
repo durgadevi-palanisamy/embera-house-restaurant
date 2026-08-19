@@ -3,9 +3,9 @@ import { MapPin, Phone, Mail, Clock, Shield, Sparkles, Navigation } from "lucide
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact & Concierge | Embera House Mumbai",
+  title: "Contact & Concierge | Embera House Chennai",
   description:
-    "Get in touch with the Embera House concierge: table bookings, private dining salon inquiries, press, and directions to Block 4, The Mills, Lower Parel, Mumbai.",
+    "Get in touch with the Embera House concierge: table bookings, private dining salon inquiries, press, and directions to No. 42, Khader Nawaz Khan Road, Nungambakkam, Chennai.",
 };
 
 export default function ContactPage() {
@@ -14,7 +14,7 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <span className="label-caps text-[#C86E45] block">Mumbai Residence</span>
+          <span className="label-caps text-[#C86E45] block">Chennai Residence</span>
           <h1 className="hero-title text-[#F7F2E9]">
             Contact & <span className="italic font-light text-[#D3B98D]">Concierge.</span>
           </h1>
@@ -35,21 +35,21 @@ export default function ContactPage() {
                   <MapPin className="w-4 h-4 text-[#C86E45] shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-[#F7F2E9] block font-medium">EMBERA HOUSE</strong>
-                    <span>Block 4, The Mills, Senapati Bapat Marg, Lower Parel, Mumbai, Maharashtra 400013</span>
+                    <span>No. 42, Khader Nawaz Khan Road, Nungambakkam, Chennai, Tamil Nadu 600006</span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-[#C86E45] shrink-0" />
                   <div>
-                    <span className="text-[#F7F2E9] font-medium">+91 22 6789 4400 / +91 98201 55300</span>
+                    <span className="text-[#F7F2E9] font-medium">+91 44 4890 5500 / +91 98400 33400</span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-[#C86E45] shrink-0" />
                   <div>
-                    <span className="text-[#F7F2E9] font-medium">reservations@emberahouse.com</span>
+                    <span className="text-[#F7F2E9] font-medium">reservations@emberahouse.in</span>
                   </div>
                 </div>
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
                       Lunch: Tuesday – Sunday, 12:00 – 15:30
                     </p>
                     <p className="text-xs text-[#A9A095]">
-                      Dinner: Monday – Sunday, 17:30 – 00:00
+                      Dinner: Monday – Sunday, 18:30 – 23:30
                     </p>
                   </div>
                 </div>
@@ -73,10 +73,10 @@ export default function ContactPage() {
               <span className="label-caps text-[#C86E45] block">Arrival & Parking</span>
               <div className="space-y-2 leading-relaxed">
                 <p>
-                  <strong className="text-[#F7F2E9]">Metro & Local Rail:</strong> Lower Parel Station (Western Line) and Currey Road (Central Line) are 5 minutes away. Lower Parel Monorail is a 3-minute walk.
+                  <strong className="text-[#F7F2E9]">Metro & Rail:</strong> Nungambakkam Railway Station (1.2 km) and Thousand Lights Metro Station (1.5 km) are minutes away. Located off Nungambakkam High Road near Taj Coromandel.
                 </p>
                 <p>
-                  <strong className="text-[#F7F2E9]">Valet & Chauffeur Parking:</strong> Dedicated complimentary valet service is available at the Mills private driveway for all dinner & lunch reservations.
+                  <strong className="text-[#F7F2E9]">Valet & Chauffeur Parking:</strong> Dedicated complimentary valet service is available at the private portico on Khader Nawaz Khan Road for all dinner & lunch reservations.
                 </p>
               </div>
             </div>

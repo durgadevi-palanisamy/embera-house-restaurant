@@ -43,17 +43,17 @@ async function main() {
 
   // 2. Opening Hours
   const days = [
-    { day: 1, meal: "DINNER", open: "17:30", close: "00:00" }, // Mon
+    { day: 1, meal: "DINNER", open: "18:30", close: "23:30" }, // Mon
     { day: 2, meal: "LUNCH", open: "12:00", close: "15:30" },  // Tue
-    { day: 2, meal: "DINNER", open: "17:30", close: "00:00" },
+    { day: 2, meal: "DINNER", open: "18:30", close: "23:30" },
     { day: 3, meal: "LUNCH", open: "12:00", close: "15:30" },  // Wed
-    { day: 3, meal: "DINNER", open: "17:30", close: "00:00" },
+    { day: 3, meal: "DINNER", open: "18:30", close: "23:30" },
     { day: 4, meal: "LUNCH", open: "12:00", close: "15:30" },  // Thu
-    { day: 4, meal: "DINNER", open: "17:30", close: "00:00" },
+    { day: 4, meal: "DINNER", open: "18:30", close: "23:30" },
     { day: 5, meal: "LUNCH", open: "12:00", close: "15:30" },  // Fri
-    { day: 5, meal: "DINNER", open: "17:00", close: "00:30" },
+    { day: 5, meal: "DINNER", open: "18:00", close: "24:00" },
     { day: 6, meal: "LUNCH", open: "12:00", close: "16:00" },  // Sat
-    { day: 6, meal: "DINNER", open: "17:00", close: "00:30" },
+    { day: 6, meal: "DINNER", open: "18:00", close: "24:00" },
     { day: 0, meal: "LUNCH", open: "12:30", close: "16:30" },  // Sun
     { day: 0, meal: "DINNER", open: "18:00", close: "23:30" },
   ];
@@ -585,7 +585,7 @@ No gas burners. No induction stoves. Just open embers, hand-carved skewers, and 
     },
   });
 
-  console.log("✅ Embera House (Mumbai) database successfully seeded with Indian Rupees (₹) and Indian details!");
+  console.log("✅ Embera House (Chennai) database successfully seeded with Indian Rupees (₹) and Chennai details!");
 }
 
 main()

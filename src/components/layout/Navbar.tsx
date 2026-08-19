@@ -30,18 +30,30 @@ export default function Navbar() {
   }, [pathname]);
 
   const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "Menu", href: "/menu" },
-    { label: "Experience", href: "/experience" },
-    { label: "About", href: "/about" },
-    { label: "Events", href: "/events" },
-    { label: "Journal", href: "/journal" },
-    { label: "Gallery", href: "/gallery" },
-    { label: "Contact", href: "/contact" },
+    { label: "Home", href: "/#home" },
+    { label: "Menu", href: "/#menu" },
+    { label: "Experience", href: "/#experience" },
+    { label: "About", href: "/#about" },
+    { label: "Events", href: "/#events" },
+    { label: "Journal", href: "/#journal" },
+    { label: "Gallery", href: "/#gallery" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   const isAdmin = pathname.startsWith("/admin");
-  if (isAdmin) return null; // Admin has its dedicated sidebar header
+  if (isAdmin) return null;
+
+  const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (pathname === "/" && href.startsWith("/#")) {
+      e.preventDefault();
+      const targetId = href.replace("/#", "");
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, "", href);
+      }
+    }
+  };
 
   return (
     <>
@@ -62,18 +74,19 @@ export default function Navbar() {
               EMBERA HOUSE
             </span>
             <span className="text-[9px] tracking-[0.3em] uppercase text-[#C86E45] font-semibold">
-              Lower Parel • Mumbai
+              Nungambakkam • Chennai
             </span>
           </Link>
 
           {/* Desktop Center Links */}
           <nav className="hidden lg:flex items-center space-x-7">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = pathname === link.href || (pathname === "/" && link.href === "/#home");
               return (
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={(e) => handleScrollClick(e, link.href)}
                   className={`text-xs uppercase tracking-[0.16em] font-medium transition-all relative py-1 ${
                     isActive
                       ? "text-[#C86E45] font-semibold"
@@ -158,7 +171,10 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      handleScrollClick(e, link.href);
+                      setMobileMenuOpen(false);
+                    }}
                     className={`font-editorial text-3xl transition-colors ${
                       isActive ? "text-[#C86E45]" : "text-[#F7F2E9] hover:text-[#D3B98D]"
                     }`}
@@ -187,7 +203,7 @@ export default function Navbar() {
               Reserve a Table
             </Link>
             <p className="text-xs text-[#A9A095]">
-              Block 4, The Mills, Lower Parel, Mumbai • +91 22 6789 4400
+              No. 42, Khader Nawaz Khan Rd, Nungambakkam, Chennai • +91 44 4890 5500
             </p>
           </div>
         </div>

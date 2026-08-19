@@ -68,8 +68,8 @@ export async function sendReservationConfirmationEmail(data: ReservationEmailDat
     <!-- Location & Contact -->
     <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; font-size: 12px; color: #A9A095; line-height: 1.6;">
       <p style="margin: 0 0 5px 0;"><strong style="color: #F7F2E9;">Embera House</strong></p>
-      <p style="margin: 0 0 5px 0;">Block 4, The Mills, Senapati Bapat Marg, Lower Parel, Mumbai, Maharashtra 400013</p>
-      <p style="margin: 0 0 5px 0;">Concierge: <a href="tel:+912267894400" style="color: #C86E45; text-decoration: none;">+91 22 6789 4400</a> | <a href="tel:+919820155300" style="color: #C86E45; text-decoration: none;">+91 98201 55300</a></p>
+      <p style="margin: 0 0 5px 0;">No. 42, Khader Nawaz Khan Road, Nungambakkam, Chennai, Tamil Nadu 600006</p>
+      <p style="margin: 0 0 5px 0;">Concierge: <a href="tel:+914448905500" style="color: #C86E45; text-decoration: none;">+91 44 4890 5500</a> | <a href="tel:+919840033400" style="color: #C86E45; text-decoration: none;">+91 98400 33400</a></p>
       <p style="margin: 15px 0 0 0; font-size: 11px; color: #778064;">
         * Cancellation Policy: Tables may be cancelled or modified up to 6 hours prior to your seating without charge.
       </p>
@@ -85,7 +85,7 @@ export async function sendReservationConfirmationEmail(data: ReservationEmailDat
   console.log(`TO: ${data.guestName} <${data.guestEmail}>`);
   console.log(`SUBJECT: Table Reservation Confirmed - Ref: ${data.confirmationCode}`);
   console.log(`DATE & TIME: ${data.date} at ${data.timeSlot}`);
-  console.log(`VENUE: Block 4, The Mills, Senapati Bapat Marg, Lower Parel, Mumbai 400013`);
+  console.log(`VENUE: No. 42, Khader Nawaz Khan Road, Nungambakkam, Chennai 600006`);
   console.log(`======================================================\n`);
 
   // If RESEND_API_KEY is available in environment, send via Resend API

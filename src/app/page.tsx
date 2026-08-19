@@ -110,7 +110,7 @@ export default async function HomePage() {
       <Hero />
 
       {/* SECTION 2: INTRODUCTION */}
-      <section className="py-28 bg-[#11100E] relative overflow-hidden">
+      <section id="about" className="py-28 bg-[#11100E] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Editorial Copy */}
@@ -118,13 +118,13 @@ export default async function HomePage() {
               <span className="label-caps text-[#C86E45] block">Welcome to Embera House</span>
               <h2 className="section-title text-[#F7F2E9]">
                 Cooking inspired by <br />
-                <span className="italic font-light text-[#D3B98D]">season, place</span> and fire.
+                <span className="italic font-light text-[#D3B98D]">season, terroir</span> and wood-fire.
               </h2>
               <p className="text-base sm:text-lg text-[#A9A095] leading-relaxed font-normal">
-                Conceived as a sanctuary of warmth in Mayfair, Embera House unites ancestral wood-fired techniques with the finest biodynamic harvests of the British Isles.
+                Conceived as a sanctuary of gastronomic warmth on Khader Nawaz Khan Road, Nungambakkam, Embera House unites ancestral wood-fired techniques with the finest biodynamic harvests across India.
               </p>
               <p className="text-sm text-[#A9A095] leading-relaxed">
-                From hand-dived scallops kissed by sweet birch flame to 45-day dry-aged Dexter ribeyes seared over glowing charcoal, every course reflects deep reverence for raw ingredients, honest craftsmanship, and gracious hospitality.
+                From coal-roasted Malabar scallops kissed by sweet tamarind and curry leaf to slow-fire Awadhi raan and smoked Kashmiri morels, every course reflects deep reverence for raw ingredients, honest craftsmanship, and gracious South Indian hospitality.
               </p>
               <div className="pt-4 flex items-center gap-6">
                 <Link href="/about" className="btn-terracotta text-xs">
@@ -162,7 +162,7 @@ export default async function HomePage() {
       </section>
 
       {/* SECTION 3: SIGNATURE DISHES */}
-      <section className="py-28 bg-[#191714] border-t border-white/5">
+      <section id="menu" className="py-28 bg-[#191714] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
@@ -252,13 +252,15 @@ export default async function HomePage() {
       </section>
 
       {/* SECTION 4: OUR PHILOSOPHY */}
-      <Philosophy />
+      <div id="philosophy">
+        <Philosophy />
+      </div>
 
       {/* SECTION 5: MENU PREVIEW (INTERACTIVE TABS) */}
       <MenuTabs categories={categories} />
 
       {/* SECTION 6: DINING EXPERIENCES */}
-      <section className="py-28 bg-[#11100E] border-t border-white/5">
+      <section id="experience" className="py-28 bg-[#11100E] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="label-caps text-[#C86E45] block mb-3">Our Spaces</span>
@@ -266,7 +268,7 @@ export default async function HomePage() {
               Dining <span className="italic font-light text-[#D3B98D]">Experiences.</span>
             </h2>
             <p className="text-sm text-[#A9A095] mt-4 leading-relaxed">
-              Each room at Embera House has been deliberately designed to evoke a distinct mood, from intimate hearthside tables to heated alfresco garden dining.
+              Each room at Embera House has been deliberately designed to evoke a distinct mood, from intimate hearthside tables to private dining salons in Nungambakkam.
             </p>
           </div>
 
@@ -308,7 +310,7 @@ export default async function HomePage() {
       </section>
 
       {/* SECTION 7: CHEF STORY */}
-      <section className="py-28 bg-[#191714] border-t border-white/5">
+      <section id="chef" className="py-28 bg-[#191714] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Chef Portrait */}
@@ -338,13 +340,13 @@ export default async function HomePage() {
                 <span className="italic font-light text-[#D3B98D]">patience & intention.</span>
               </h2>
               <blockquote className="font-editorial text-xl sm:text-2xl text-[#D3B98D] italic border-l-2 border-[#C86E45] pl-6 my-6">
-                &ldquo;Fire is unpredictable and alive. It forces you to cook with all five senses, paying total attention to the sound of sizzling fat and the subtle aroma of burning birch.&rdquo;
+                &ldquo;Fire is unpredictable and alive. It forces you to cook with all five senses, paying total attention to the sound of sizzling charcoal and the fragrant aroma of seasoned wood.&rdquo;
               </blockquote>
               <p className="text-sm sm:text-base text-[#A9A095] leading-relaxed">
-                Raised between the rugged coasts of Northumbria and the Basque Country, Mateo Vane spent two decades mastering classical kitchens across Europe before establishing Embera House. His approach strips away pretension, allowing nature’s raw elements to speak directly to guests.
+                Raised with deep appreciation for heritage culinary disciplines, Mateo Vane spent two decades mastering firecraft before establishing Embera House in Chennai. His approach strips away pretension, allowing the natural flavours of India&apos;s rich soil and seas to shine.
               </p>
               <p className="text-sm text-[#A9A095] leading-relaxed">
-                Mateo works intimately with small family-owned farms, fishermen, and foragers, ensuring every ingredient reflects genuine terroir and sustainable husbandry.
+                Mateo works intimately with organic spice estates in the Western Ghats, artisanal coastal fishermen, and regional farmers, ensuring every dish honors sustainable biodiversity.
               </p>
               <div className="pt-4">
                 <Link href="/about" className="btn-outline-luxury text-xs">
@@ -357,21 +359,21 @@ export default async function HomePage() {
       </section>
 
       {/* SECTION 8: SEASONAL EXPERIENCE FEATURE */}
-      <section className="py-28 bg-[#11100E] border-t border-white/5 relative">
+      <section id="tasting" className="py-28 bg-[#11100E] border-t border-white/5 relative">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="relative overflow-hidden bg-[#191714] border border-white/10 p-8 sm:p-12 lg:p-16">
             <div className="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-[#C86E45]/10 blur-3xl pointer-events-none" />
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
               <div className="lg:col-span-7 space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C86E45]/20 text-[#C86E45] border border-[#C86E45]/30 text-xs font-semibold uppercase tracking-widest">
-                  <Sparkles className="w-3.5 h-3.5" /> Limited Autumn Feature
+                  <Sparkles className="w-3.5 h-3.5" /> Limited Season Feature
                 </div>
                 <h2 className="section-title text-[#F7F2E9]">
-                  Autumn Solstice <br />
-                  <span className="italic font-light text-[#D3B98D]">Fire Tasting Menu.</span>
+                  Royal Fire <br />
+                  <span className="italic font-light text-[#D3B98D]">Gastronomic Tasting.</span>
                 </h2>
                 <p className="text-sm sm:text-base text-[#A9A095] leading-relaxed">
-                  A curated 7-course gastronomic progression celebrating New Forest chanterelles, Isle of Mull scallops in bone marrow dashi, dry-aged Dexter beef, and hearth-baked mission figs.
+                  A curated 7-course gastronomic progression celebrating charred Himalayan morels, coastal scallops in tamarind embers, 24-hour slow-cooked Awadhi raan, and hearth-smoked Mysore jaggery tart.
                 </p>
                 <div className="flex flex-wrap items-center gap-6 pt-2">
                   <div>
@@ -403,7 +405,7 @@ export default async function HomePage() {
                 <div className="relative aspect-square overflow-hidden border border-white/10 shadow-2xl">
                   <Image
                     src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85"
-                    alt="Autumn Tasting Feast"
+                    alt="Gastronomic Tasting Feast"
                     fill
                     className="object-cover"
                   />
@@ -415,10 +417,12 @@ export default async function HomePage() {
       </section>
 
       {/* SECTION 9: VISUAL GALLERY */}
-      <GallerySection items={galleryImages} />
+      <div id="gallery">
+        <GallerySection items={galleryImages} />
+      </div>
 
       {/* SECTION 10: EVENTS */}
-      <section className="py-28 bg-[#191714] border-t border-white/5">
+      <section id="events" className="py-28 bg-[#191714] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
@@ -478,10 +482,12 @@ export default async function HomePage() {
       </section>
 
       {/* SECTION 11: TESTIMONIALS */}
-      <Testimonials />
+      <div id="testimonials">
+        <Testimonials />
+      </div>
 
       {/* SECTION 12: RESERVATION CTA */}
-      <section className="py-28 bg-[#11100E] border-t border-white/5 relative overflow-hidden">
+      <section id="reserve" className="py-28 bg-[#11100E] border-t border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="relative bg-gradient-to-r from-[#24201C] via-[#191714] to-[#11100E] border border-white/10 p-8 sm:p-14 lg:p-20 text-center flex flex-col items-center">
             <span className="label-caps text-[#C86E45] block mb-3">Reservations</span>
@@ -489,7 +495,7 @@ export default async function HomePage() {
               Your table is <span className="italic font-light text-[#D3B98D]">waiting.</span>
             </h2>
             <p className="text-base sm:text-lg text-[#A9A095] max-w-xl mx-auto mb-10 leading-relaxed">
-              Join us for an evening of seasonal food, warm hospitality and memorable conversation in Mumbai.
+              Join us for an evening of seasonal food, warm hospitality and memorable conversation in Nungambakkam, Chennai.
             </p>
 
             <Link
@@ -504,18 +510,18 @@ export default async function HomePage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10 w-full max-w-3xl text-xs text-[#A9A095]">
               <div className="flex flex-col items-center gap-1">
                 <MapPin className="w-4 h-4 text-[#C86E45]" />
-                <span className="text-[#F7F2E9] font-medium">Lower Parel, Mumbai</span>
-                <span>Block 4, The Mills, 400013</span>
+                <span className="text-[#F7F2E9] font-medium">Nungambakkam, Chennai</span>
+                <span>No. 42, Khader Nawaz Khan Rd, 600006</span>
               </div>
               <div className="flex flex-col items-center gap-1">
                 <Clock className="w-4 h-4 text-[#D3B98D]" />
                 <span className="text-[#F7F2E9] font-medium">Service Hours</span>
-                <span>Lunch 12:00–15:30 • Dinner 17:30–00:00</span>
+                <span>Lunch 12:00–15:30 • Dinner 18:30–23:30</span>
               </div>
               <div className="flex flex-col items-center gap-1">
                 <Phone className="w-4 h-4 text-[#778064]" />
                 <span className="text-[#F7F2E9] font-medium">Concierge Direct</span>
-                <span>+91 22 6789 4400</span>
+                <span>+91 44 4890 5500</span>
               </div>
             </div>
           </div>
@@ -523,7 +529,7 @@ export default async function HomePage() {
       </section>
 
       {/* SECTION 13: JOURNAL PREVIEW */}
-      <section className="py-28 bg-[#191714] border-t border-white/5">
+      <section id="journal" className="py-28 bg-[#191714] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
@@ -582,8 +588,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* SECTION 14: NEWSLETTER FORM */}
-      <NewsletterForm />
+      {/* SECTION 14: NEWSLETTER & CONTACT ANCHOR */}
+      <div id="contact">
+        <NewsletterForm />
+      </div>
     </div>
   );
 }

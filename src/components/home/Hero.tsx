@@ -7,7 +7,7 @@ import EmberCanvas from "./EmberCanvas";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden bg-[#11100E]">
+    <section id="home" className="relative min-h-[95vh] flex items-center justify-center overflow-hidden bg-[#11100E]">
       {/* Background Media with Ambient Zoom & Depth Gradient */}
       <div className="absolute inset-0 z-0">
         <div
@@ -41,7 +41,7 @@ export default function Hero() {
           <span className="text-white/20">•</span>
           <span className="flex items-center gap-1 text-[#D3B98D]">
             <MapPin className="w-3 h-3" />
-            Lower Parel, Mumbai
+            Nungambakkam, Chennai
           </span>
         </motion.div>
 
@@ -57,7 +57,7 @@ export default function Hero() {
             <span className="italic font-light text-[#D3B98D]">Moments.</span>
           </h1>
           <p className="max-w-2xl mx-auto text-sm sm:text-base text-[#A9A095] font-normal leading-relaxed tracking-wide">
-            An ode to ancestral wood-fired craftsmanship, heirloom Indian botanicals, and coastal charcoal embers. Unhurried luxury in the heart of Mumbai.
+            An ode to ancestral wood-fired craftsmanship, heirloom Indian botanicals, and coastal charcoal embers. Unhurried luxury in Nungambakkam, Chennai.
           </p>
         </motion.div>
 
