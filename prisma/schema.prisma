@@ -1,0 +1,256 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String          @id @default(uuid())
+  name          String
+  email         String          @unique
+  passwordHash  String
+  role          String          @default("CUSTOMER") // SUPER_ADMIN, MANAGER, STAFF, CUSTOMER
+  phone         String?
+  avatar        String?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+
+  preferences   UserPreference?
+  reservations  Reservation[]
+  favourites    FavouriteDish[]
+  auditLogs     AdminAuditLog[]
+}
+
+model UserPreference {
+  id                 String   @id @default(uuid())
+  userId             String   @unique
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dietaryNotes       String?
+  allergies          String?
+  seatingPreference  String?  // MAIN_DINING, TERRACE, CHEFS_TABLE, PRIVATE_DINING
+  specialNotes       String?
+  updatedAt          DateTime @updatedAt
+}
+
+model Restaurant {
+  id                      String         @id @default(uuid())
+  name                    String         @default("EMBERA HOUSE")
+  tagline                 String         @default("Fire. Flavour. Moments.")
+  description             String
+  address                 String         @default("44 St. James's Place, Mayfair, London SW1A 1NP")
+  phone                   String         @default("+44 (0) 20 7946 0888")
+  email                   String         @default("reservations@emberahouse.com")
+  cancellationHoursLimit  Int            @default(6) // Can modify/cancel up to 6 hours before
+  dressCode               String         @default("Smart Elegant — jacket preferred, strictly no athletic sportswear.")
+  createdAt               DateTime       @default(now())
+  updatedAt               DateTime       @updatedAt
+}
+
+model OpeningHour {
+  id          String   @id @default(uuid())
+  dayOfWeek   Int      // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+  mealType    String   // LUNCH, DINNER
+  openTime    String   // "12:00"
+  closeTime   String   // "15:00"
+  isClosed    Boolean  @default(false)
+}
+
+model SpecialOpeningHour {
+  id          String   @id @default(uuid())
+  date        String   // YYYY-MM-DD
+  isClosed    Boolean  @default(false)
+  note        String?
+  openTime    String?
+  closeTime   String?
+}
+
+model RestaurantTable {
+  id           String        @id @default(uuid())
+  tableNumber  String        @unique
+  room         String        // MAIN_DINING, TERRACE, CHEFS_TABLE, PRIVATE_DINING
+  minCapacity  Int           @default(1)
+  maxCapacity  Int           @default(4)
+  isActive     Boolean       @default(true)
+  reservations Reservation[]
+}
+
+model Reservation {
+  id                String                     @id @default(uuid())
+  confirmationCode  String                     @unique
+  guestName         String
+  guestEmail        String
+  guestPhone        String
+  partySize         Int
+  date              String                     // YYYY-MM-DD
+  timeSlot          String                     // "19:30"
+  seatingArea       String                     @default("NO_PREFERENCE") // NO_PREFERENCE, MAIN_DINING, TERRACE, CHEFS_TABLE, PRIVATE_DINING
+  occasion          String?                    // BIRTHDAY, ANNIVERSARY, BUSINESS, DATE_NIGHT, CELEBRATION, OTHER
+  dietaryNotes      String?
+  accessibilityNotes String?
+  specialRequests   String?
+  status            String                     @default("CONFIRMED") // PENDING, CONFIRMED, SEATED, COMPLETED, CANCELLED, NO_SHOW
+  
+  userId            String?
+  user              User?                      @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  tableId           String?
+  table             RestaurantTable?           @relation(fields: [tableId], references: [id], onDelete: SetNull)
+
+  createdAt         DateTime                   @default(now())
+  updatedAt         DateTime                   @updatedAt
+
+  history           ReservationStatusHistory[]
+}
+
+model ReservationStatusHistory {
+  id             String      @id @default(uuid())
+  reservationId  String
+  reservation    Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+  status         String
+  changedBy      String      @default("SYSTEM")
+  note           String?
+  createdAt      DateTime    @default(now())
+}
+
+model MenuCategory {
+  id          String     @id @default(uuid())
+  name        String
+  slug        String     @unique
+  description String?
+  sortOrder   Int        @default(0)
+  isActive    Boolean    @default(true)
+  items       MenuItem[]
+}
+
+model MenuItem {
+  id              String          @id @default(uuid())
+  name            String
+  slug            String          @unique
+  description     String
+  price           Float
+  categoryId      String
+  category        MenuCategory    @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  isAvailable     Boolean         @default(true)
+  isChefPick      Boolean         @default(false)
+  isSignature     Boolean         @default(false)
+  dietaryFlags    String          @default("") // comma separated: VEGETARIAN, VEGAN, GLUTEN_FREE, DAIRY_FREE
+  allergens       String          @default("") // comma separated: Nuts, Shellfish, Dairy, Gluten, etc.
+  ingredients     String?
+  winePairing     String?
+  chefNote        String?
+  imageUrl        String?
+  sortOrder       Int             @default(0)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  favourites      FavouriteDish[]
+}
+
+model FavouriteDish {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  menuItemId String
+  menuItem   MenuItem @relation(fields: [menuItemId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, menuItemId])
+}
+
+model Event {
+  id          String   @id @default(uuid())
+  title       String
+  slug        String   @unique
+  description String
+  excerpt     String
+  date        String   // YYYY-MM-DD
+  time        String   // "19:00"
+  duration    String   @default("3 Hours")
+  price       Float?
+  capacity    Int      @default(30)
+  bookedCount Int      @default(0)
+  location    String   @default("Embera House — Main Dining Room & Fire Terrace")
+  imageUrl    String
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model GalleryImage {
+  id          String   @id @default(uuid())
+  title       String
+  category    String   // FOOD, INTERIOR, KITCHEN, DRINKS, EVENTS
+  imageUrl    String
+  caption     String?
+  isFeatured  Boolean  @default(false)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model JournalCategory {
+  id    String        @id @default(uuid())
+  name  String        @unique
+  slug  String        @unique
+  posts JournalPost[]
+}
+
+model JournalPost {
+  id                 String          @id @default(uuid())
+  title              String
+  slug               String          @unique
+  excerpt            String
+  content            String
+  authorName         String          @default("Chef Mateo Vane")
+  authorRole         String          @default("Executive Chef & Founder")
+  authorAvatar       String?
+  coverImage         String
+  readingTimeMinutes Int             @default(5)
+  isPublished        Boolean         @default(true)
+  publishedAt        DateTime        @default(now())
+  categoryId         String
+  category           JournalCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  tags               String          @default("")
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+}
+
+model ContactEnquiry {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  phone       String?
+  enquiryType String   @default("GENERAL") // GENERAL, RESERVATION, PRIVATE_DINING, EVENTS, PRESS, CAREERS
+  message     String
+  status      String   @default("UNREAD") // UNREAD, IN_PROGRESS, RESOLVED, ARCHIVED
+  adminNotes  String?
+  createdAt   DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  isActive     Boolean  @default(true)
+  subscribedAt DateTime @default(now())
+}
+
+model SiteSetting {
+  id          String   @id @default(uuid())
+  key         String   @unique
+  value       String
+  description String?
+}
+
+model AdminAuditLog {
+  id         String   @id @default(uuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  adminEmail String
+  action     String   // CREATE, UPDATE, DELETE, STATUS_CHANGE
+  resource   String   // MENU, RESERVATION, TABLE, EVENT, JOURNAL, SETTINGS
+  details    String
+  ipAddress  String?
+  createdAt  DateTime @default(now())
+}
